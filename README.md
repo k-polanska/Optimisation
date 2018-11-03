@@ -2,4 +2,5 @@
 Optimization Methods; Golden section  algorithm
 
 ## Requrements:
-* Compiler
+* Parser
+* Math
