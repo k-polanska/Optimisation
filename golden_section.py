@@ -5,8 +5,8 @@ from math import *
 def parse():
     #formula = "sin(x)*x**2"
     formula = input("enter f(x): ")
-    a = int(input("enter interval: "))
-    b = int(input(""))
+    a = int(input("enter interval. a = "))
+    b = int(input("b = "))
 
     code = parser.expr(formula).compile()
 
@@ -23,12 +23,14 @@ def goldenSection(code, a ,b):
     N = a + alpha*(b - a)
     A = a
     B = b
+    n = 1
 
     while 1:
         # step 1
         if B - A < epsilon:
             x = (A + B) / 2
             print(eval(code))
+            print("n = ", n)
             return
         else:
             x = L
@@ -47,6 +49,7 @@ def goldenSection(code, a ,b):
                 B = N
                 N = L
                 L = A + (1 - alpha) * (B - A)
+            n = n+1
 
 
 if __name__ == "__main__":
