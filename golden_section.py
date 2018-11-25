@@ -15,8 +15,8 @@ def parse():
 
 def goldenSection(code, a ,b):
 
-    alpha = 0.618       # correction coefficient
-    epsilon = 0.1       # required  tolerance of calculations
+    alpha = 0.618        # correction coefficient
+    epsilon = 0.01       # required  tolerance of calculations
 
     # step 0
     L = a + (1 - alpha)*(b - a)
@@ -53,5 +53,10 @@ def goldenSection(code, a ,b):
 
 
 if __name__ == "__main__":
-    code, a, b = parse()
-    goldenSection(code, a ,b)
+
+    while 1:
+        code, a, b = parse()
+        goldenSection(code, a ,b)
+        ans = input('What do you want to do? (1 - quit; 2 - enter another function): ')
+        if ans == '1':
+            exit(0)
