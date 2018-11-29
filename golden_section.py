@@ -26,7 +26,7 @@ def goldenSection(code, a ,b):
     n = 1
 
     while 1:
-        # step 1
+        # step 1sin(x/0
         if B - A < epsilon:
             x = (A + B) / 2
             print(eval(code))
