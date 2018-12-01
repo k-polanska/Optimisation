@@ -21,100 +21,98 @@ class FormComponent extends Component {
                 <Card>
                     <CardContent>
                         <Grid container spacing={24}>
-                    <Grid item xs={12}>
-                    <TextField
-                        id="formula"
-                        label="Formula"
-                        value={this.state.formula}                
-                        margin="dense"                                       
-                        onChange={ (e) => {
-                            this.setState({
-                                formula: e.target.value
-                            })  
-                        }}                
-                    />
-                    </Grid>
-                    <Grid item xs={12}>
-                    <TextField
-                        id="rangeA"
-                        label="Range (A)"
-                        value={this.state.rangeA}                
-                        margin="dense"    
-                        type="number"
-                        onChange={ (e) => {
-                            this.setState({
-                                rangeA: e.target.value
-                            })  
-                        }}                
-                    />
-                    </Grid>
-                    <Grid item xs={12}>
-                    <TextField
-                        id="rangeB"
-                        label="Range (B)"
-                        value={this.state.rangeB}                
-                        margin="dense"    
-                        type="number"
-                        onChange={ (e) => {
-                            this.setState({
-                                rangeB: e.target.value
-                            })  
-                        }}                
-                    />
-                    </Grid>
-                    <Grid item xs={12}>
-                    <TextField
-                        id="alpha"
-                        label="alpha"
-                        value={this.state.alpha}                
-                        margin="dense"    
-                        type="number"
-                        onChange={ (e) => {
-                            this.setState({
-                                alpha: e.target.value
-                            })  
-                        }}                
-                    />
-                    </Grid>
-                    <Grid item xs={12}>
-                    <TextField
-                        id="epsilon"
-                        label="epsilon"
-                        value={this.state.epsilon}                
-                        margin="dense"    
-                        type="number"
-                        onChange={ (e) => {
-                            this.setState({
-                                epsilon: e.target.value
-                            })  
-                        }}                
-                    />
-                    </Grid>
-                    <Grid item xs={12}>
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
-                        // className={classes.button}>
-                        // <Icon className={classes.rightIcon}
-                        onClick={() => {
-                            this.props.calculate(this.state.formula,
-                                                this.state.rangeA,
-                                                this.state.rangeB,
-                                                this.state.alpha,
-                                                this.state.epsilon
-                                )
-                        }}
-                        >
-                        Calculate
-                        {/* send</Icon> */}
-                        
-                    </Button>
-                    </Grid>
-                    
-            
-            
-            
-                </Grid>
+                            <Grid item xs={12}>
+                                <TextField                                    
+                                    id="formula"
+                                    label="Formula"
+                                    value={this.state.formula}                
+                                    margin="dense"      
+                                    fullWidth={true}                              
+                                    onChange={ (e) => {
+                                        this.setState({
+                                            formula: e.target.value
+                                        })  
+                                    }}                
+                                />
+                             </Grid>
+                             <Grid item xs={12}>
+                                 <TextField
+                                    id="rangeA"
+                                    label="Range (A)"
+                                    value={this.state.rangeA}                
+                                    margin="dense"    
+                                    fullWidth={true}
+                                    type="number"
+                                    onChange={ (e) => {
+                                        this.setState({
+                                            rangeA: e.target.value
+                                        })  
+                                    }}                
+                                />
+                             </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="rangeB"
+                                    label="Range (B)"
+                                    value={this.state.rangeB}                
+                                    margin="dense"   
+                                    fullWidth={true}
+                                    type="number"
+                                    onChange={ (e) => {
+                                        this.setState({
+                                            rangeB: e.target.value
+                                        })  
+                                    }}                
+                            />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="alpha"
+                                    label="alpha"
+                                    value={this.state.alpha}                
+                                    margin="dense"    
+                                    fullWidth={true}
+                                    type="number"
+                                    onChange={ (e) => {
+                                        this.setState({
+                                            alpha: e.target.value
+                                        })  
+                                    }}                
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="epsilon"
+                                    label="epsilon"
+                                    value={this.state.epsilon}                
+                                    margin="dense"    
+                                    fullWidth={true}
+                                    type="number"
+                                    onChange={ (e) => {
+                                        this.setState({
+                                            epsilon: e.target.value
+                                        })  
+                                    }}                
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button 
+                                    variant="contained" 
+                                    fullWidth={true}                                    
+                                    color="primary"                         
+                                    onClick={() => {
+                                        this.props.calculate(this.state.formula,
+                                                            this.state.rangeA,
+                                                            this.state.rangeB,
+                                                            this.state.alpha,
+                                                            this.state.epsilon
+                                            )
+                                    }}
+                                    >
+                                    Calculate                                                
+                                </Button>
+                            </Grid>            
+                         </Grid>
                     </CardContent>
                 </Card>            
         )

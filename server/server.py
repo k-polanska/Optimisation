@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import parser
 from math import *
+import numpy as np
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -15,10 +17,22 @@ def hello():
     epsilon = float(request.args.get('epsilon'))
 
     formula = parse_with_params(f)
-    ret = golden_section(formula,a,b,alpha,epsilon)    
+    min_and_iter = golden_section(formula,a,b,alpha,epsilon)
 
-    return jsonify(ret)
+    plot_data = get_data_fot_plot(formula,a,b)
 
+    ret = {
+        "result": min_and_iter,
+        "plot": plot_data,
+        "formula": f,
+        "a": a,
+        "b": b,
+        "alpha": alpha,
+        "epsilon": epsilon   
+    }
+
+
+    return json.dumps(ret)
 
 
 def parse_with_params(f):
@@ -39,7 +53,7 @@ def golden_section(code,a,b,alpha,epsilon):
         if B - A < epsilon:
             x = (A + B) / 2
             ret = {
-                "minimum": eval(code),
+                "minimum": round(eval(code),3),
                 "iterNumber": n
             }            
             return ret
@@ -61,3 +75,15 @@ def golden_section(code,a,b,alpha,epsilon):
                 N = L
                 L = A + (1 - alpha) * (B - A)
             n = n+1
+
+def get_data_fot_plot(f,a,b):
+    t = np.linspace(a, b, b-a)
+    y = lambda x: eval(f)
+    values = [y(t1) for t1 in t]
+    ret = {
+        "x": t.tolist(),
+        "y": values
+    }
+
+    return ret
+    

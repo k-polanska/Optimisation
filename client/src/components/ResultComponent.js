@@ -5,14 +5,14 @@ import { Grid, Card, CardContent } from '@material-ui/core';
 class ResultComponent extends Component {
     render() {
         return(
-            <Card>
+            <Card style={{marginTop: 20}}>
                 <CardContent>
                     <Grid container spacing={24}>
                         <Grid item xs={12}>
-                            <p style={{fontFamily:'Roboto'}}>Minimum: <b>{this.props.minimum}</b></p>
+                            <p style={{fontFamily:'Roboto'}}><b>Minimum:</b> {this.props.minimum}</p>
                         </Grid>
                         <Grid item xs={12}>
-                            <p style={{fontFamily:'Roboto'}}>Number of iterations: <b>{this.props.iterNumber}</b></p>
+                            <p style={{fontFamily:'Roboto'}}><b>Number of iterations:</b> {this.props.iterNumber}</p>
                         </Grid>
                     </Grid>
                 </CardContent>
