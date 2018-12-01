@@ -12,14 +12,18 @@ export default function FunctionReducer(
 ) {
     switch (action.type) {
 
-        case 'CALCULATE':
+        case 'CALCULATE_FULFILLED':
+            // state = {...state,
+            //     formula: action.payload.formula,
+            //     rangeA: action.payload.rangeA,
+            //     rangeB: action.payload.rangeB,
+            //     alpha: action.payload.alpha,
+            //     epsilon: action.payload.epsilon
+            // };
             state = {...state,
-                formula: action.payload.formula,
-                rangeA: action.payload.rangeA,
-                rangeB: action.payload.rangeB,
-                alpha: action.payload.alpha,
-                epsilon: action.payload.epsilon
-            };
+                minimum: action.payload.data.minimum,
+                iterNumber: action.payload.data.iterNumber
+            }
             break;
 
         default:
