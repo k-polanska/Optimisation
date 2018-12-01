@@ -2,57 +2,121 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { calculate } from '../actions/index'
-import { Button, Icon, TextField } from '@material-ui/core';
+import { Button, Icon, TextField, Grid, Card, CardContent } from '@material-ui/core';
 
 class FormComponent extends Component {
     constructor(props){
         super(props);
         this.state = {
             formula: '',
-            rangeA: 0
+            rangeA: 0,
+            rangeB: 0,
+            alpha: 0.618,
+            epsilon: 0.01
         };
     };    
 
     render(){
-        return(
-            <div>
-                <TextField
-                    id="formula"
-                    label="Formula"
-                    value={this.state.formula}                
-                    margin="dense"                                       
-                    onChange={ (e) => {
-                        this.setState({
-                            formula: e.target.value
-                        })  
-                    }}                
-                />
-                <TextField
-                    id="rangeA"
-                    label="Range (A)"
-                    value={this.state.rangeA}                
-                    margin="dense"    
-                    type="number"
-                    onChange={ (e) => {
-                        this.setState({
-                            rangeA: e.target.value
-                        })  
-                    }}                
-                />
-                <Button 
-                    variant="contained" 
-                    color="primary" 
-                    // className={classes.button}>
-                    // <Icon className={classes.rightIcon}
-                    onClick={() => {
-                        this.props.calculate(this.state.formula)
-                    }}
-                    >
-                    Calculate
-                    {/* send</Icon> */}
+        return(           
+                <Card>
+                    <CardContent>
+                        <Grid container spacing={24}>
+                    <Grid item xs={12}>
+                    <TextField
+                        id="formula"
+                        label="Formula"
+                        value={this.state.formula}                
+                        margin="dense"                                       
+                        onChange={ (e) => {
+                            this.setState({
+                                formula: e.target.value
+                            })  
+                        }}                
+                    />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        id="rangeA"
+                        label="Range (A)"
+                        value={this.state.rangeA}                
+                        margin="dense"    
+                        type="number"
+                        onChange={ (e) => {
+                            this.setState({
+                                rangeA: e.target.value
+                            })  
+                        }}                
+                    />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        id="rangeB"
+                        label="Range (B)"
+                        value={this.state.rangeB}                
+                        margin="dense"    
+                        type="number"
+                        onChange={ (e) => {
+                            this.setState({
+                                rangeB: e.target.value
+                            })  
+                        }}                
+                    />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        id="alpha"
+                        label="alpha"
+                        value={this.state.alpha}                
+                        margin="dense"    
+                        type="number"
+                        onChange={ (e) => {
+                            this.setState({
+                                alpha: e.target.value
+                            })  
+                        }}                
+                    />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        id="epsilon"
+                        label="epsilon"
+                        value={this.state.epsilon}                
+                        margin="dense"    
+                        type="number"
+                        onChange={ (e) => {
+                            this.setState({
+                                epsilon: e.target.value
+                            })  
+                        }}                
+                    />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        // className={classes.button}>
+                        // <Icon className={classes.rightIcon}
+                        onClick={() => {
+                            this.props.calculate(this.state.formula,
+                                                this.state.rangeA,
+                                                this.state.rangeB,
+                                                this.state.alpha,
+                                                this.state.epsilon
+                                )
+                        }}
+                        >
+                        Calculate
+                        {/* send</Icon> */}
+                        
+                    </Button>
+                    </Grid>
                     
-                </Button>
-            </div>
+            
+            
+            
+                </Grid>
+                    </CardContent>
+                </Card>            
         )
     }
 }
