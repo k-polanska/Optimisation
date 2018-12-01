@@ -3,15 +3,6 @@ import { connect } from 'react-redux';
 import { Grid, Card, CardContent } from '@material-ui/core';
 import Chart from "react-google-charts";
 
-const data = [
-    ["Year", "Sales"],
-    ["2004", 1000],
-    ["2005", 1170],
-    ["2006", 660],
-    ["2007", 1030]
-  ];
-
-
 class PlotComponent extends Component {
 
     render() {

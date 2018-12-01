@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { calculate } from '../actions/index'
-import { Button, Icon, TextField, Grid, Card, CardContent } from '@material-ui/core';
+import { Button, TextField, Grid, Card, CardContent } from '@material-ui/core';
 
 class FormComponent extends Component {
     constructor(props){
