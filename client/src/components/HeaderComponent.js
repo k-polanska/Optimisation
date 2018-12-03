@@ -7,7 +7,7 @@ class HeaderComponent extends Component {
             <AppBar position="static" style={{marginBottom: 20}}>
                 <Toolbar>
                 <Typography variant="h6" color="inherit">
-                    MOCIADM: Golden Section
+                    Optimization methods: Golden Section
                 </Typography>
                 </Toolbar>
             </AppBar>
